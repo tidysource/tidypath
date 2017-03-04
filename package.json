@@ -1,0 +1,30 @@
+{
+  "name": "tidypath",
+  "version": "1.0.0",
+  "description": "Extend native nodeJS path module",
+  "main": "index.js",
+  "scripts": {
+    "test": "tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tidysource/tidypath.git"
+  },
+  "keywords": [
+    "path",
+    "extend",
+    "nodeJS",
+    "node",
+    "utility"
+  ],
+  "author": "TidySource (Daniel Cobo)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tidysource/tidypath/issues"
+  },
+  "homepage": "https://github.com/tidysource/tidypath#readme",
+  "devDependencies": {
+    "tap-colorize": "^1.2.0",
+    "tape": "^4.6.3"
+  }
+}
