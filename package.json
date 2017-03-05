@@ -24,8 +24,7 @@
   },
   "homepage": "https://github.com/tidysource/tidypath#readme",
   "devDependencies": {
-    "tap-colorize": "^1.2.0",
-    "tape": "^4.6.3"
+    "tidytest": "^1.0.1"
   },
   "dependencies": {
     "rmtrailing": "^1.0.2"
