@@ -1,2 +1,75 @@
-# tidypath
+# TidyPath
 Extend native nodeJS path module
+
+## How to use
+
+### Prerequisite
+
+#### Node JS
+https://nodejs.org/
+
+### Example
+#### lvls()
+```javascript
+var path = require('tidypath');
+
+var paths = [
+	'hello',
+	'foo/bar',
+	'hello/world',
+	'hello/world/tidy/'	
+]
+
+path.lvls(paths);
+/*
+[
+	['hello'],
+	['foo/bar','hello/world'],
+	['hello/world/tidy/'],
+];
+```
+
+#### byDepth()
+```javascript
+var path = require('tidypath');
+
+var paths = [
+		'hello',
+		'hello/world/foo/bar',
+		'hello/world/tidy/', //ignores trailing separator
+		'hello/world',
+		'foo/bar'
+	]
+	
+path.byDepth(paths);
+/*
+[
+'hello',
+'foo/bar',
+'hello/world',
+'hello/world/tidy/',	//won't remove trailing separator
+'hello/world/foo/bar'
+]);
+*/
+```
+
+#### ext()
+```javascript
+var path = require('tidypath');
+
+path.ext('foo.txt') //'.txt'
+path.ext('foo/bar.ver7.txt') //'.txt'
+path.ext('foo/bar') //''
+path.ext('.txt') //''
+```
+
+#### rmExt()
+```javascript
+var path = require('tidypath');
+
+path.rmExt('foo.txt') //'foo'
+path.rmExt('foo/bar.ver7.txt') //'foo/bar.ver7'
+path.rmExt('foo/bar') //'foo/bar'
+path.rmExt('.txt') //'.txt'
+*/
+```
