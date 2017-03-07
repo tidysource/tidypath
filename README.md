@@ -71,5 +71,17 @@ path.rmExt('foo.txt') //'foo'
 path.rmExt('foo/bar.ver7.txt') //'foo/bar.ver7'
 path.rmExt('foo/bar') //'foo/bar'
 path.rmExt('.txt') //'.txt'
-*/
+```
+
+#### dotfile()
+```javascript
+var path = require('tidypath');
+
+path.dotfile('foo.txt') //''
+path.dotfile('./foo/bar') //''
+path.dotfile('./foo.txt') //''
+path.dotfile('foo/.bar/hello.txt') //''
+path.dotfile('foo/bar.ver7.txt') //''
+path.dotfile('foo/.bar') //'.bar'
+path.dotfile('.txt') //'.txt'
 ```
