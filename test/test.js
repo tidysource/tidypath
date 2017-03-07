@@ -23,7 +23,7 @@ var path = require('../index.js');
 Tests
 =====
 */
-test('lvls()', function(assert){
+test('lvls()', function(assert){	//<--- won't handle relative lvls, like ./ or ../ --> use path.resolve?
     assert.plan(3);
 	
 	var paths = [
@@ -64,19 +64,35 @@ test('byDepth()', function(assert){
 });
 
 test('ext()', function(assert){
-    assert.plan(4);
+    assert.plan(6);
 	
 	assert.equal(path.ext('foo.txt'), '.txt');
+	assert.equal(path.ext('./foo.txt'), '.txt');
 	assert.equal(path.ext('foo/bar.ver7.txt'), '.txt');
 	assert.equal(path.ext('foo/bar'), '');
 	assert.equal(path.ext('.txt'), '');
+	assert.equal(path.ext('./.txt'), '');
 });
 
 test('rmExt()', function(assert){
-    assert.plan(4);
+    assert.plan(5);
 	
 	assert.equal(path.rmExt('foo.txt'), 'foo');
+	assert.equal(path.rmExt('./foo.txt'), './foo');
 	assert.equal(path.rmExt('foo/bar.ver7.txt'), 'foo/bar.ver7');
 	assert.equal(path.rmExt('foo/bar'), 'foo/bar');
 	assert.equal(path.rmExt('.txt'), '.txt');
+});
+
+test('dotfile()', function(assert){
+    assert.plan(7);
+	
+	assert.equal(path.dotfile('foo.txt'), '');
+	assert.equal(path.dotfile('./foo/bar'), '');
+	assert.equal(path.dotfile('./foo.txt'), '');
+	assert.equal(path.dotfile('foo/.bar/hello.txt'), '',
+							'dotfolder');
+	assert.equal(path.dotfile('foo/bar.ver7.txt'), '');
+	assert.equal(path.dotfile('foo/.bar'), '.bar');
+	assert.equal(path.dotfile('.txt'), '.txt');
 });
