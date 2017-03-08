@@ -21,6 +21,9 @@ path.ext = require('./ext.js');
 avaliableProp(path, 'rmExt');
 path.rmExt = require('./rmExt.js');
 
+avaliableProp(path, 'file');
+path.file = require('./file.js');
+
 avaliableProp(path, 'dotfile');
 path.dotfile = require('./dotfile.js');
 

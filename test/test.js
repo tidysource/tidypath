@@ -96,3 +96,21 @@ test('dotfile()', function(assert){
 	assert.equal(path.dotfile('foo/.bar'), '.bar');
 	assert.equal(path.dotfile('.txt'), '.txt');
 });
+
+test('file()', function(assert){
+    assert.plan(10);
+	
+	assert.equal(path.file('foo.txt'), 'foo.txt');
+	assert.equal(path.file('./foo.txt'), 'foo.txt');
+	assert.equal(path.file('foo.ver100.txt'), 'foo.ver100.txt');
+	assert.equal(path.file('foo/bar.txt'), 'bar.txt');
+	assert.equal(path.file('foo/.bar/hello.txt'), 'hello.txt',
+							'dotfolder');
+	assert.equal(path.file('.bar/'), '',
+							'dotfolder');
+	assert.equal(path.file('foo/.bar/hello'), '',
+							'dotfolder');
+	assert.equal(path.file('.dotfile'), '.dotfile');
+	assert.equal(path.file('foo/bar'), '')
+	assert.equal(path.file(''), '');
+});
