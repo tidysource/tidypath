@@ -27,4 +27,7 @@ path.file = require('./file.js');
 avaliableProp(path, 'dotfile');
 path.dotfile = require('./dotfile.js');
 
+avaliableProp(path, 'tree');
+path.tree = require('./tree.js');
+
 module.exports = path;

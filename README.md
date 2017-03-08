@@ -101,3 +101,17 @@ path.dotfile('foo/bar.ver7.txt') //''
 path.dotfile('foo/.bar') //'.bar'
 path.dotfile('.txt') //'.txt'
 ```
+#### tree()
+```javascript
+var path = require('tidypath');
+
+path.tree('./hello/world.txt') //'./hello'
+path.tree('hello/world/foo.txt') //'hello/world'
+path.tree('hello/world') //'hello/world'
+path.tree('hello/world/') //'hello/world/'
+path.tree('hello/world/.foo') //'hello/world'
+path.tree('./foo.txt') //'.'
+path.tree('foo.txt') //''
+path.tree('.dotfile') //''
+path.tree('') //''
+```
