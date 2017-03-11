@@ -115,3 +115,18 @@ path.tree('foo.txt') //''
 path.tree('.dotfile') //''
 path.tree('') //''
 ```
+
+#### filter()
+```javascript
+var path = require('tidypath');
+var paths = [
+		'hello.js',
+		'hello/world.txt',
+		'.dot',
+		0
+	];
+path.filter('./hello.txt', '.txt');	//['./hello.txt']
+path.filter(paths.slice(), '.js');	//['hello.js']
+path.filter(paths.slice(), ['.js']);	//['hello.js']
+path.filter(paths.slice(), path.dotfile);	//['.dot']
+```
