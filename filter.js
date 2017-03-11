@@ -3,6 +3,7 @@
 var pathExt = require('./ext.js');
 
 module.exports = function filter(paths, filters){
+	var paths = paths.slice();
 	var keep;
 	if (!Array.isArray(paths)){
 		paths = [paths];

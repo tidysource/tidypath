@@ -131,7 +131,7 @@ test('tree()', function(assert){
 
 
 test('filter()', function(assert){
-    assert.plan(4);
+    assert.plan(5);
 	
 	var paths = [
 		'hello.js',
@@ -139,9 +139,12 @@ test('filter()', function(assert){
 		'.dot',
 		0
 	];
+	//Same as var path without 0
+	var onlyStrings = paths.slice(0,-1);
 
 	assert.deepEqual(path.filter('./hello.txt', '.txt'), ['./hello.txt']);
-	assert.deepEqual(path.filter(paths.slice(), '.js'), ['hello.js']);
-	assert.deepEqual(path.filter(paths.slice(), ['.js']), ['hello.js']);
-	assert.deepEqual(path.filter(paths.slice(), path.dotfile), ['.dot']);
+	assert.deepEqual(path.filter(paths, '.js'), ['hello.js']);
+	assert.deepEqual(path.filter(paths, ['.js']), ['hello.js']);
+	assert.deepEqual(path.filter(paths, path.dotfile), ['.dot']);
+	assert.deepEqual(path.filter(paths), onlyStrings);
 });
