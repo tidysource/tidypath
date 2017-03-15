@@ -133,3 +133,17 @@ path.filter(paths, path.dotfile);	//['.dot']
 path.filter(paths);	//['hello.js','hello/world.txt','.dot']
 path.filter(paths, '.js', false);	//['hello.js','hello/world.txt','.dot',0];
 ```
+
+#### isFile()
+	```javascript
+path.isFile('./hello/world.txt')	//true
+path.isFile('hello/world/foo.txt')	//true
+path.isFile('hello/world')	//false
+path.isFile('hello/world/.foo')	//true
+path.isFile('./foo.txt')	//true
+path.isFile('foo.txt')	//true
+path.isFile('.dotfile')	//true
+path.isFile('./')	//false
+path.isFile('.')	//false
+path.isFile('')	//false
+```
