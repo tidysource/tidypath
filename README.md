@@ -135,7 +135,7 @@ path.filter(paths, '.js', false);	//['hello.js','hello/world.txt','.dot',0];
 ```
 
 #### isFile()
-	```javascript
+```javascript
 path.isFile('./hello/world.txt')	//true
 path.isFile('hello/world/foo.txt')	//true
 path.isFile('hello/world')	//false
