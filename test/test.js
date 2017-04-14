@@ -159,3 +159,9 @@ test('isFile()', function(assert){
 	assert.equal(path.isFile('.'), false);
 	assert.equal(path.isFile(''), false);
 });
+
+test('separator', function(assert){
+    assert.plan(1);
+
+	assert.equal(path.separator, path.sep);
+});
