@@ -151,6 +151,26 @@ test('tree()', function(assert){
 	assert.equal(path.tree(''), '');
 });
 
+test('parent()', function(assert){
+    assert.plan(14);
+
+    assert.equal(path.parent('./hello/world.txt'), './hello');
+    assert.equal(path.parent('hello/world/foo.txt'), 'hello/world');
+    assert.equal(path.parent('hello/world'), 'hello');		//--
+    assert.equal(path.parent('hello/world/'), 'hello');	//--- Should make trailing slash uniform?
+    assert.equal(path.parent('hello/world/.foo'), 'hello/world');	//--
+    assert.equal(path.parent('./foo.txt'), '.');
+    assert.equal(path.parent('foo.txt'), '');
+    assert.equal(path.parent('./foo.bar.txt'), '.');
+    assert.equal(path.parent('.dotfile'), '');
+	assert.equal(path.parent('.dotfile.txt'), '');
+    assert.equal(path.parent('./.dotfile.txt'), '.');
+    assert.equal(path.parent('./.dotfile.bar.txt'), '.');
+    assert.equal(path.parent('foo/.bar/hello'), 'foo/.bar',
+                                'dotfolder');
+    assert.equal(path.parent(''), '');
+});
+
 test('filter()', function(assert){
     assert.plan(6);
 
